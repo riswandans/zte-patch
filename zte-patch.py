@@ -42,7 +42,8 @@ def vulnerable_patch(host, new_user, new_password):
 
 	if new_password != password:
 		tn.write("sendcmd 1 DB set TelnetCfg 0 TS_UPwd " + new_password + "\n")
-
+	
+	tn.write("sendcmd 1 DB save\n")
 	tn.write("exit\n")
 	return tn.read_all()
 	tn.close()
