@@ -84,7 +84,10 @@ patch = vulnerable_patch(host, username, password)
 if patch.find('Denied') >= 0:
 	print_warning("[!] Failed to execute commands, Access Denied")
 else:
-	print_success("[*] Success patch your router")
+	if username != "root" and password != "Zte521":
+		print_success("[*] Success patch your router")
+	else:
+		print_warning("[!] Failed patch, setting have not changed")
 	print "Username " + username
 	print "Password " + password
 	print "Reboot your modem/router"
